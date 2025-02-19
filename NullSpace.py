@@ -79,6 +79,8 @@ def nullspace(matrix: list[list[Fraction]]) -> list[list[Fraction]]:
     print("Pivot variables:", *[x[i] for i in pivot_vars])
     print("Free variables:", *[x[i] for i in range(len(x)) if i not in pivot_vars])
     print()
+    if not free_vars:
+        return [[0] * len(pivot_vars)]
     null_basis = [[1 if j==i else 0 for j in range(len(x))] for i in free_vars]
     cur_pivot_i = 0
     for i in range(len(pivot_i)):
