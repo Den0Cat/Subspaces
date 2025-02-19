@@ -96,6 +96,10 @@ def nullspace(matrix: list[list[Fraction]]) -> list[list[Fraction]]:
     print()
     return null_basis
 
+# get the left null space from matrix
+def left_nullspace(matrix: list[list[Fraction]]) -> list[list[Fraction]]:
+    return nullspace(col_space(matrix))
+
 def main():
     start = time.time()
 
@@ -119,6 +123,12 @@ def main():
     print(f"{"NULL SPACE":=^50}")
     null = nullspace(matrix)
     print("NULL SPACE:")
+    print_matrix(col_space(null))
+    print(f"{"=":=^50}"+'\n')
+
+    print(f"{"LEFT NULL SPACE":=^50}")
+    null = left_nullspace(matrix)
+    print("LEFT NULL SPACE:")
     print_matrix(col_space(null))
     print(f"{"=":=^50}"+'\n')
 
