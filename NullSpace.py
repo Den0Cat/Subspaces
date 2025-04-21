@@ -88,7 +88,7 @@ def nullspace(matrix: list[list[Fraction]]) -> list[list[Fraction]]:
         first_sign = True
         for j in range(len(RREF[0])):
             if j!=pivot_vars[cur_pivot_i] and RREF[pivot_i[i]][j]!=0:
-                print(f"{"+" if RREF[pivot_i[i]][j]<0 and not first_sign else "-" if RREF[pivot_i[i]][j]>=0 else ''}{' ' if not first_sign else ''}{abs(-RREF[pivot_i[i]][j])}*{x[j]}", end=' ')
+                print(f"{'+' if RREF[pivot_i[i]][j]<0 and not first_sign else '-' if RREF[pivot_i[i]][j]>=0 else ''}{' ' if not first_sign else ''}{abs(-RREF[pivot_i[i]][j])}*{x[j]}", end=' ')
                 first_sign = False
                 null_basis[free_vars.index(j)][pivot_vars[cur_pivot_i]] = -RREF[pivot_i[i]][j]
         cur_pivot_i += 1
